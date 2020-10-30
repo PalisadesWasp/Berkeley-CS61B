@@ -90,8 +90,13 @@ public class IntList {
             }
         }
         if (bPtr != null) {
-            while (bPtr.rest != null) {
-                aPtr.rest = new IntList(bPtr.first, bPtr.rest);
+            if (aPtr == null) {
+                A = new IntList(bPtr.first, null);
+                aPtr = A;
+                bPtr = bPtr.rest;
+            }
+            while (bPtr != null) {
+                aPtr.rest = new IntList(bPtr.first, null);
                 aPtr = aPtr.rest;
                 bPtr = bPtr.rest;
             }
