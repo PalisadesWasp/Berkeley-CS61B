@@ -57,6 +57,7 @@ public class LinkedListDeque<T> {
             System.out.print(" ");
             currNode = currNode.next;
         }
+        System.out.println();
     }
 
     public T removeFirst() {
@@ -82,14 +83,28 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
+        if (index < 0 || index > size - 1) {
+            return null;
+        }
         TNode currNode = front.next;
         for (int i = 0; i < index; i++) {
-            if (currNode.item == null) {
-                return null;
-            }
             currNode = currNode.next;
         }
         return currNode.item;
+    }
+
+    public T getRecursive(TNode t, int index) {
+        if (index == 0) {
+            return t.item;
+        }
+        return getRecursive(t.next, index - 1);
+    }
+
+    public T getRecursive(int index) {
+        if (index < 0 || index > size - 1) {
+            return null;
+        }
+        return getRecursive(front.next, index);
     }
 
 }

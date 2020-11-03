@@ -1,6 +1,5 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	
 	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
@@ -23,16 +22,14 @@ public class LinkedListDequeTest {
 		if (expected == null) {
 			if (actual == null) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		} else if (actual != null) {
 			if (!expected.equals(actual)) {
 				System.out.println("get() returned " + actual + ", but expected: " + expected);
 				return false;
-			} else {
-				return true;
 			}
+			return true;
 		}
 		return false;
 	}
@@ -110,4 +107,4 @@ public class LinkedListDequeTest {
 		addIsEmptySizeTest();
 		addRemoveTest();
 	}
-} 
+}
