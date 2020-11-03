@@ -19,6 +19,24 @@ public class LinkedListDequeTest {
 		return true;
 	}
 
+	public static boolean checkGet(String expected, String actual) {
+		if (expected == null) {
+			if (actual == null) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if (actual != null) {
+			if (!expected.equals(actual)) {
+				System.out.println("get() returned " + actual + ", but expected: " + expected);
+				return false;
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/* Prints a nice message based on whether a test passed. 
 	 * The \n means newline. */
 	public static void printTestStatus(boolean passed) {
@@ -35,8 +53,7 @@ public class LinkedListDequeTest {
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
+
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -54,11 +71,17 @@ public class LinkedListDequeTest {
 		lld1.addLast("back");
 		passed = checkSize(3, lld1.size()) && passed;
 
+		String s = lld1.get(1);
+		passed = checkGet("middle", s) && passed;
+
+		String s2 = lld1.get(3);
+		passed = checkGet(null, s2) && passed;
+
 		System.out.println("Printing out deque: ");
 		lld1.printDeque();
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
@@ -66,8 +89,6 @@ public class LinkedListDequeTest {
 
 		System.out.println("Running add/remove test.");
 
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -81,7 +102,7 @@ public class LinkedListDequeTest {
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	public static void main(String[] args) {
