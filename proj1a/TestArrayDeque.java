@@ -4,157 +4,178 @@ import static org.junit.Assert.*;
 public class TestArrayDeque {
     @Test
     public void testAddFirst() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        assertEquals(0, AD.size());
-        assertEquals(true, AD.isEmpty());
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        assertEquals(0, ad.size());
+        assertEquals(true, ad.isEmpty());
 
-        AD.addFirst("F1");
-        AD.addFirst("F2");
-        AD.addFirst("F3");
-        AD.addFirst("F4");
-        AD.addFirst("F5");
-        AD.addFirst("F6");
-        AD.addFirst("F7");
-        AD.addFirst("F8");
-        assertEquals(8, AD.size());
-        assertEquals(false, AD.isEmpty());
+        ad.addFirst("F1");
+        ad.addFirst("F2");
+        ad.addFirst("F3");
+        ad.addFirst("F4");
+        ad.addFirst("F5");
+        ad.addFirst("F6");
+        ad.addFirst("F7");
+        ad.addFirst("F8");
+        assertEquals(8, ad.size());
+        assertEquals(false, ad.isEmpty());
         System.out.print("testAddFirst: ");
-        AD.printDeque();
+        ad.printDeque();
     }
 
     @Test
     public void testAddLast() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        assertEquals(0, AD.size());
-        assertEquals(true, AD.isEmpty());
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        assertEquals(0, ad.size());
+        assertEquals(true, ad.isEmpty());
 
-        AD.addLast("R1");
-        AD.addLast("R2");
-        AD.addLast("R3");
-        AD.addLast("R4");
-        AD.addLast("R5");
-        AD.addLast("R6");
-        AD.addLast("R7");
-        AD.addLast("R8");
-        assertEquals(8, AD.size());
-        assertEquals(false, AD.isEmpty());
+        ad.addLast("R1");
+        ad.addLast("R2");
+        ad.addLast("R3");
+        ad.addLast("R4");
+        ad.addLast("R5");
+        ad.addLast("R6");
+        ad.addLast("R7");
+        ad.addLast("R8");
+        assertEquals(8, ad.size());
+        assertEquals(false, ad.isEmpty());
         System.out.print("testAddLast: ");
-        AD.printDeque();
+        ad.printDeque();
     }
 
     @Test
     public void testAdd() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        assertEquals(0, AD.size());
-        assertEquals(true, AD.isEmpty());
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        assertEquals(0, ad.size());
+        assertEquals(true, ad.isEmpty());
 
-        AD.addFirst("F1");
-        assertEquals(1, AD.size());
-        assertEquals(false, AD.isEmpty());
+        ad.addFirst("F1");
+        assertEquals(1, ad.size());
+        assertEquals(false, ad.isEmpty());
 
-        AD.addFirst("F2");
-        AD.addLast("R3");
-        AD.addLast("R4");
-        AD.addFirst("F5");
-        AD.addLast("R6");
-        AD.addLast("R7");
-        AD.addFirst("F8");
-        assertEquals(8, AD.size());
-        assertEquals(false, AD.isEmpty());
+        ad.addFirst("F2");
+        ad.addLast("R3");
+        ad.addLast("R4");
+        ad.addFirst("F5");
+        ad.addLast("R6");
+        ad.addLast("R7");
+        ad.addFirst("F8");
+        assertEquals(8, ad.size());
+        assertEquals(false, ad.isEmpty());
         System.out.print("testAdd: ");
-        AD.printDeque();
+        ad.printDeque();
     }
 
     @Test
     public void testRemoveFirst() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        AD.addFirst("F1");
-        AD.addFirst("F2");
-        AD.addFirst("F3");
-        AD.addFirst("F4");
-        assertEquals("F4", AD.removeFirst());
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        ad.addFirst("F1");
+        ad.addFirst("F2");
+        ad.addFirst("F3");
+        ad.addFirst("F4");
+        assertEquals("F4", ad.removeFirst());
         System.out.print("testRemoveFirst: ");
-        AD.printDeque();
+        ad.printDeque();
 
-        assertEquals("F3", AD.removeFirst());
-        assertEquals("F2", AD.removeFirst());
-        assertEquals("F1", AD.removeFirst());
-        assertEquals(null, AD.removeFirst());
+        assertEquals("F3", ad.removeFirst());
+        assertEquals("F2", ad.removeFirst());
+        assertEquals("F1", ad.removeFirst());
+        assertEquals(null, ad.removeFirst());
         System.out.print("testRemoveFirst: ");
-        AD.printDeque();
-        assertEquals(0, AD.size());
+        ad.printDeque();
+        assertEquals(0, ad.size());
     }
 
     @Test
     public void testRemoveLast() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        AD.addFirst("F1");
-        AD.addFirst("F2");
-        AD.addFirst("F3");
-        AD.addFirst("F4");
-        assertEquals("F1", AD.removeLast());
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        ad.addFirst("F1");
+        ad.addFirst("F2");
+        ad.addFirst("F3");
+        ad.addFirst("F4");
+        assertEquals("F1", ad.removeLast());
         System.out.print("testRemoveLast: ");
-        AD.printDeque();
+        ad.printDeque();
 
-        assertEquals("F2", AD.removeLast());
-        assertEquals("F3", AD.removeLast());
-        assertEquals("F4", AD.removeLast());
-        assertEquals(null, AD.removeLast());
+        assertEquals("F2", ad.removeLast());
+        assertEquals("F3", ad.removeLast());
+        assertEquals("F4", ad.removeLast());
+        assertEquals(null, ad.removeLast());
         System.out.print("testRemoveLast: ");
-        AD.printDeque();
-        assertEquals(0, AD.size());
+        ad.printDeque();
+        assertEquals(0, ad.size());
     }
 
     @Test
     public void testGet() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        AD.addFirst("F1");
-        AD.addFirst("F2");
-        AD.addFirst("F3");
-        AD.addFirst("F4");
-        AD.addFirst("F5");
-        AD.addFirst("F6");
-        assertEquals("F6", AD.get(0));
-        assertEquals("F5", AD.get(1));
-        assertEquals("F2", AD.get(4));
-        assertEquals("F1", AD.get(5));
-        assertEquals(null, AD.get(6));
-        assertEquals(null, AD.get(-1));
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        ad.addFirst("F1");
+        ad.addFirst("F2");
+        ad.addFirst("F3");
+        ad.addFirst("F4");
+        ad.addFirst("F5");
+        ad.addFirst("F6");
+        assertEquals("F6", ad.get(0));
+        assertEquals("F5", ad.get(1));
+        assertEquals("F2", ad.get(4));
+        assertEquals("F1", ad.get(5));
+        assertEquals(null, ad.get(6));
+        assertEquals(null, ad.get(-1));
         System.out.print("testGet: ");
-        AD.printDeque();
+        ad.printDeque();
     }
 
     @Test
     public void testResize() {
-        ArrayDeque<String> AD = new ArrayDeque<String>();
-        assertEquals(0, AD.size());
-        assertEquals(true, AD.isEmpty());
+        ArrayDeque<String> ad = new ArrayDeque<String>();
+        assertEquals(0, ad.size());
+        assertEquals(true, ad.isEmpty());
 
-        AD.addFirst("F1");
-        AD.addLast("R2");
-        AD.addFirst("F3");
-        AD.addLast("R4");
-        AD.addLast("R5");
-        AD.addFirst("F6");
-        AD.addFirst("F7");
-        AD.addFirst("F8");
-        AD.addLast("R9");
-        AD.addFirst("F10");
-        assertEquals(10, AD.size());
+        ad.addFirst("F1");
+        ad.addLast("R2");
+        ad.addFirst("F3");
+        ad.addLast("R4");
+        ad.addLast("R5");
+        ad.addFirst("F6");
+        ad.addFirst("F7");
+        ad.addFirst("F8");
+        ad.addLast("R9");
+        ad.addFirst("F10");
+        assertEquals(10, ad.size());
         System.out.print("testResize: ");
-        AD.printDeque();
-        AD.printStatus();
+        ad.printDeque();
+        ad.printStatus();
 
-        AD.removeFirst();
-        AD.removeFirst();
-        AD.removeLast();
-        AD.removeFirst();
-        AD.removeLast();
-        AD.printDeque();
-        AD.printStatus();
+        ad.removeFirst();
+        ad.removeFirst();
+        ad.removeLast();
+        ad.removeFirst();
+        ad.removeLast();
+        ad.printDeque();
+        ad.printStatus();
 
-        AD.removeLast();
-        AD.printDeque();
-        AD.printStatus();
+        ad.removeLast();
+        ad.printDeque();
+        ad.printStatus();
+    }
+
+    @Test
+    public void testGetGS() {
+        ArrayDeque ad = new ArrayDeque();
+        ad.addFirst(0);
+        assertEquals(0, ad.get(0));
+        ad.addLast(2);
+        ad.removeLast();
+        assertEquals(0, ad.get(0));
+        ad.addFirst(5);
+        ad.addLast(6);
+        ad.addLast(7);
+        ad.removeFirst();
+        ad.removeFirst();
+        ad.addFirst(10);
+        ad.addFirst(11);
+        ad.addLast(12);
+        ad.removeFirst();
+        ad.removeLast();
+        assertEquals(6, ad.get(1));
     }
 }

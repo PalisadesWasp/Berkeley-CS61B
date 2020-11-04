@@ -3,21 +3,21 @@ public class ArrayDeque<T> {
     private int size; // Number of items in the deque
     private int frontIndex;
     private int rearIndex;
-    private static final double usageFactor = 0.25;
-    private static final double resizeFactor = 2;
-    private static final int startingSize = 8;
-    private static final int minLength = 15;
+    private static final double USAGE_FACTOR = 0.25;
+    private static final double RESIZE_FACTOR = 2;
+    private static final int STARTING_SIZE = 8;
+    private static final int MIN_LENGTH = 15;
 
     public ArrayDeque() {
-        items = (T[]) new Object[startingSize];
+        items = (T[]) new Object[STARTING_SIZE];
         size = 0;
         frontIndex = 0; // startingSize / 2
-        rearIndex = startingSize - 1; // startingSize / 2 - 1
+        rearIndex = STARTING_SIZE - 1; // startingSize / 2 - 1
     }
 
     public void addFirst(T item) {
         if (size == items.length) {
-            int updatedSize = (int) (size * resizeFactor) + 1;
+            int updatedSize = (int) (size * RESIZE_FACTOR) + 1;
             resize(updatedSize);
         }
 
@@ -32,7 +32,7 @@ public class ArrayDeque<T> {
 
     public void addLast(T item) {
         if (size == items.length) {
-            int updatedSize = (int) (size * resizeFactor) + 1;
+            int updatedSize = (int) (size * RESIZE_FACTOR) + 1;
             resize(updatedSize);
         }
 
@@ -81,8 +81,8 @@ public class ArrayDeque<T> {
                 frontIndex++;
             }
             size--;
-            if ((double) size / items.length < usageFactor && items.length > minLength) {
-                int updatedSize = (int) (size * resizeFactor) + 1;
+            if ((double) size / items.length < USAGE_FACTOR && items.length > MIN_LENGTH) {
+                int updatedSize = (int) (size * RESIZE_FACTOR) + 1;
                 resize(updatedSize);
             }
             return item;
@@ -96,13 +96,13 @@ public class ArrayDeque<T> {
             T item = items[rearIndex];
             items[rearIndex] = null;
             if (rearIndex == 0) {
-                frontIndex = items.length - 1;
+                rearIndex = items.length - 1;
             } else {
                 rearIndex--;
             }
             size--;
-            if ((double) size / items.length < usageFactor && items.length > minLength) {
-                int updatedSize = (int) (size * resizeFactor) + 1;
+            if ((double) size / items.length < USAGE_FACTOR && items.length > MIN_LENGTH) {
+                int updatedSize = (int) (size * RESIZE_FACTOR) + 1;
                 resize(updatedSize);
             }
             return item;
@@ -132,8 +132,10 @@ public class ArrayDeque<T> {
         rearIndex = size - 1;
     }
 
+    /**
     public void printStatus() {
         System.out.println("length: " + items.length + "   usage: " + (double) size / items.length);
     }
+     */
 
 }
