@@ -1,38 +1,39 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/** Tests the LinkedListDeque class */
 public class TestLinkedListDeque {
     @Test
     public void testLinkedListDeque() {
-        LinkedListDeque<String> LLD = new LinkedListDeque<String>();
-        assertEquals(0, LLD.size());
-        assertEquals(true, LLD.isEmpty());
+        LinkedListDeque<String> lld = new LinkedListDeque<String>();
+        assertEquals(0, lld.size());
+        assertTrue(lld.isEmpty());
 
-        LLD.addFirst("1");
-        assertEquals(1, LLD.size());
-        assertEquals(false, LLD.isEmpty());
+        lld.addFirst("1");
+        assertEquals(1, lld.size());
+        assertFalse(lld.isEmpty());
 
-        LLD.addLast("2");
-        LLD.addLast("3");
-        assertEquals(3, LLD.size());
-        assertEquals(false, LLD.isEmpty());
+        lld.addLast("2");
+        lld.addLast("3");
+        assertEquals(3, lld.size());
+        assertFalse(lld.isEmpty());
 
-        String s = LLD.get(1);
-        assertEquals("1", LLD.get(0));
-        assertEquals("1", LLD.getRecursive(0));
-        assertEquals("2", LLD.get(1));
-        assertEquals("2", LLD.getRecursive(1));
-        assertEquals(null, LLD.get(3));
-        assertEquals(null, LLD.getRecursive(3));
+        String s = lld.get(1);
+        assertEquals("1", lld.get(0));
+        assertEquals("1", lld.getRecursive(0));
+        assertEquals("2", lld.get(1));
+        assertEquals("2", lld.getRecursive(1));
+        assertNull(lld.get(3));
+        assertNull(lld.getRecursive(3));
 
-        LLD.addLast("4");
-        LLD.removeFirst();
-        LLD.printDeque();
+        lld.addLast("4");
+        assertEquals("1", lld.removeFirst());
+        lld.printDeque();
 
-        LLD.addFirst("0");
-        LLD.removeLast();
-        LLD.printDeque();
-        assertEquals("2", LLD.get(1));
-        assertEquals("2", LLD.getRecursive(1));
+        lld.addFirst("0");
+        assertEquals("4", lld.removeLast());
+        lld.printDeque();
+        assertEquals("2", lld.get(1));
+        assertEquals("2", lld.getRecursive(1));
     }
 }

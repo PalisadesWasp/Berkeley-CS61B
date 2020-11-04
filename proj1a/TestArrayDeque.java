@@ -1,12 +1,14 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/** Tests the ArrayDeque class */
 public class TestArrayDeque {
+    /** Test the ArrayDeque.AddFirst method */
     @Test
     public void testAddFirst() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
         assertEquals(0, ad.size());
-        assertEquals(true, ad.isEmpty());
+        assertTrue(ad.isEmpty());
 
         ad.addFirst("F1");
         ad.addFirst("F2");
@@ -17,16 +19,17 @@ public class TestArrayDeque {
         ad.addFirst("F7");
         ad.addFirst("F8");
         assertEquals(8, ad.size());
-        assertEquals(false, ad.isEmpty());
+        assertFalse(ad.isEmpty());
         System.out.print("testAddFirst: ");
         ad.printDeque();
     }
 
+    /** Test the ArrayDeque.AddLast method */
     @Test
     public void testAddLast() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
         assertEquals(0, ad.size());
-        assertEquals(true, ad.isEmpty());
+        assertTrue(ad.isEmpty());
 
         ad.addLast("R1");
         ad.addLast("R2");
@@ -37,20 +40,21 @@ public class TestArrayDeque {
         ad.addLast("R7");
         ad.addLast("R8");
         assertEquals(8, ad.size());
-        assertEquals(false, ad.isEmpty());
+        assertFalse(ad.isEmpty());
         System.out.print("testAddLast: ");
         ad.printDeque();
     }
 
+    /** Test the ArrayDeque.Add method */
     @Test
     public void testAdd() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
         assertEquals(0, ad.size());
-        assertEquals(true, ad.isEmpty());
+        assertTrue(ad.isEmpty());
 
         ad.addFirst("F1");
         assertEquals(1, ad.size());
-        assertEquals(false, ad.isEmpty());
+        assertFalse(ad.isEmpty());
 
         ad.addFirst("F2");
         ad.addLast("R3");
@@ -60,11 +64,12 @@ public class TestArrayDeque {
         ad.addLast("R7");
         ad.addFirst("F8");
         assertEquals(8, ad.size());
-        assertEquals(false, ad.isEmpty());
+        assertFalse(ad.isEmpty());
         System.out.print("testAdd: ");
         ad.printDeque();
     }
 
+    /** Test the ArrayDeque.RemoveFirst method */
     @Test
     public void testRemoveFirst() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
@@ -79,12 +84,13 @@ public class TestArrayDeque {
         assertEquals("F3", ad.removeFirst());
         assertEquals("F2", ad.removeFirst());
         assertEquals("F1", ad.removeFirst());
-        assertEquals(null, ad.removeFirst());
+        assertNull(ad.removeFirst());
         System.out.print("testRemoveFirst: ");
         ad.printDeque();
         assertEquals(0, ad.size());
     }
 
+    /** Test the ArrayDeque.RemoveLast method */
     @Test
     public void testRemoveLast() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
@@ -99,12 +105,13 @@ public class TestArrayDeque {
         assertEquals("F2", ad.removeLast());
         assertEquals("F3", ad.removeLast());
         assertEquals("F4", ad.removeLast());
-        assertEquals(null, ad.removeLast());
+        assertNull(ad.removeLast());
         System.out.print("testRemoveLast: ");
         ad.printDeque();
         assertEquals(0, ad.size());
     }
 
+    /** Test the ArrayDeque.Get method */
     @Test
     public void testGet() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
@@ -118,17 +125,18 @@ public class TestArrayDeque {
         assertEquals("F5", ad.get(1));
         assertEquals("F2", ad.get(4));
         assertEquals("F1", ad.get(5));
-        assertEquals(null, ad.get(6));
-        assertEquals(null, ad.get(-1));
+        assertNull(ad.get(6));
+        assertNull(ad.get(-1));
         System.out.print("testGet: ");
         ad.printDeque();
     }
 
+    /** Test the ArrayDeque.Resize method */
     @Test
     public void testResize() {
         ArrayDeque<String> ad = new ArrayDeque<String>();
         assertEquals(0, ad.size());
-        assertEquals(true, ad.isEmpty());
+        assertTrue(ad.isEmpty());
 
         ad.addFirst("F1");
         ad.addLast("R2");
@@ -158,6 +166,7 @@ public class TestArrayDeque {
         ad.printStatus();
     }
 
+    /** Test the ArrayDeque.Get method (copied from Gradescope) */
     @Test
     public void testGetGS() {
         ArrayDeque ad = new ArrayDeque();
