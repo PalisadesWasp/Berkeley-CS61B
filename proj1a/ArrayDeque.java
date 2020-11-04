@@ -27,12 +27,12 @@ public class ArrayDeque<T> {
      * Adds an item of type T to the front of the deque
      */
     public void addFirst(T item) {
-        /** Expand the array when the deque is full */
+        /* Expand the array when the deque is full */
         if (size == items.length) {
             int updatedSize = (int) (size * RFACTOR) + 1;
             resize(updatedSize);
         }
-        /** Update the index of the first item */
+        /* Update the index of the first item */
         if (frontIndex - 1 < 0) {
             frontIndex = items.length - 1;
         } else {
@@ -46,12 +46,12 @@ public class ArrayDeque<T> {
      * Adds an item of type T to the back of the deque
      */
     public void addLast(T item) {
-        /** Expand the array when the deque is full */
+        /* Expand the array when the deque is full */
         if (size == items.length) {
             int updatedSize = (int) (size * RFACTOR) + 1;
             resize(updatedSize);
         }
-        /** Update the index of the last item */
+        /* Update the index of the last item */
         if (rearIndex + 1 >= items.length) {
             rearIndex = 0;
         } else {
@@ -82,13 +82,13 @@ public class ArrayDeque<T> {
      * Prints the items in the deque from first to last, separated by a space
      */
     public void printDeque() {
-        /** Printing the items starting from the front of the deque */
+        /* Printing the items starting from the front of the deque */
         int currIndex = frontIndex;
         for (int i = 0; i < size; i++) {
             System.out.print(items[currIndex]);
             System.out.print(" ");
             currIndex++;
-            /** Circle back when reach the end of the array */
+            /* Circle back when reach the end of the array */
             if (currIndex == items.length) {
                 currIndex = 0;
             }
@@ -103,7 +103,7 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         } else {
-            /** Remove the first item if the deque is not empty */
+            /* Remove the first item if the deque is not empty */
             T item = items[frontIndex];
             items[frontIndex] = null;
             if (frontIndex == items.length - 1) {
@@ -112,7 +112,7 @@ public class ArrayDeque<T> {
                 frontIndex++;
             }
             size--;
-            /** Shorten the array if the usage factor is too low */
+            /* Shorten the array if the usage factor is too low */
             if ((double) size / items.length < UFACTOR_LIM && items.length > MIN_LENGTH) {
                 int updatedSize = (int) (size * RFACTOR) + 1;
                 resize(updatedSize);
@@ -125,7 +125,7 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         } else {
-            /** Remove the last item if the deque is not empty */
+            /* Remove the last item if the deque is not empty */
             T item = items[rearIndex];
             items[rearIndex] = null;
             if (rearIndex == 0) {
@@ -135,7 +135,7 @@ public class ArrayDeque<T> {
                 rearIndex--;
             }
             size--;
-            /** Shorten the array if the usage factor is too low */
+            /* Shorten the array if the usage factor is too low */
             if ((double) size / items.length < UFACTOR_LIM && items.length > MIN_LENGTH) {
                 int updatedSize = (int) (size * RFACTOR) + 1;
                 resize(updatedSize);
@@ -166,13 +166,13 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         T[] newAD = (T[]) new Object[capacity];
         if (items.length == size || frontIndex > rearIndex) {
-            /** If (1) expand the deque, or (2) shorten the deque when the deque is at the two
+            /* If (1) expand the deque, or (2) shorten the deque when the deque is at the two
              *  ends of the array: first copy the deque from its front to the end of the array,
              *  and then circle back to the start of the array and copy the remaining items */
             System.arraycopy(items, frontIndex, newAD, 0, size - frontIndex);
             System.arraycopy(items, 0, newAD, size - frontIndex, frontIndex);
         } else {
-            /** If shorten the deque when the deque is at the middle of the array:
+            /* If shorten the deque when the deque is at the middle of the array:
              * copy the whole deque directly */
             System.arraycopy(items, frontIndex, newAD, 0, size);
         }
@@ -184,10 +184,8 @@ public class ArrayDeque<T> {
     /**
      * Helper function for testing; print the length of the array and the usage factor
      */
-    /*
     public void printStatus() {
         System.out.println("length: " + items.length + "   usage: " + (double) size / items.length);
     }
-     */
 
 }
