@@ -56,8 +56,8 @@ public class IntListTest {
         assertEquals(exp, IntList.dcatenate(A, B));
         assertEquals(IntList.of(1, 2, 3, 4, 5, 6), A);
 
-        IntList C = IntList.of();
-        IntList D = IntList.of(1, 2, 3);
+        IntList C = IntList.of(1, 2, 3);
+        IntList D = IntList.of();
         IntList exp2 = IntList.of(1, 2, 3);
         assertEquals(exp2, IntList.dcatenate(C, D));
         assertEquals(IntList.of(1, 2, 3), C);
