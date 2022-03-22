@@ -1,8 +1,13 @@
 /**
- * Actually runs simulation of an universe specified in one of the data files
- * command:
+ * UC Berkeley CS 61B Spring 2018
+ * https://sp18.datastructur.es/materials/proj/proj0/proj0
+ * Project 0: NBody Simulation
+ * Actually runs simulation of a universe specified in one of the data files
+ *
+ * sample command:
  * javac NBody.java
  * java NBody 157788000.0 25000.0 data/planets.txt
+ * java NBody 20000000 20000 ./data/suninterference.txt
  */
 
 public class NBody {
