@@ -1,4 +1,7 @@
 /**
+ * UC Berkeley CS 61B Spring 2018
+ * https://sp18.datastructur.es/materials/proj/proj1a/proj1a
+ * Project 1A: Data Structures
  * Implemented double ended queue using arrays as the core data structure
  * Circular approach was used here
  */
@@ -165,12 +168,12 @@ public class ArrayDeque<T> {
      */
     private void resize(int capacity) {
         T[] newAD = (T[]) new Object[capacity];
-        if (items.length == size || frontIndex > rearIndex) {
+        if (frontIndex > rearIndex) {
             /* If (1) expand the deque, or (2) shorten the deque when the deque is at the two
              *  ends of the array: first copy the deque from its front to the end of the array,
              *  and then circle back to the start of the array and copy the remaining items */
-            System.arraycopy(items, frontIndex, newAD, 0, size - frontIndex);
-            System.arraycopy(items, 0, newAD, size - frontIndex, frontIndex);
+            System.arraycopy(items, frontIndex, newAD, 0, items.length - frontIndex);
+            System.arraycopy(items, 0, newAD, size - frontIndex, size - items.length + frontIndex);
         } else {
             /* If shorten the deque when the deque is at the middle of the array:
              * copy the whole deque directly */
