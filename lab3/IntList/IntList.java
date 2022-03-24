@@ -72,8 +72,8 @@ public class IntList {
         return new IntList(L.first * L.first, squareListRecursive(L.rest));
     }
 
-    /** DO NOT MODIFY ANYTHING ABOVE THIS LINE! */
 
+    /** DO NOT MODIFY ANYTHING ABOVE THIS LINE! */
 
     /**
      * Returns a list consisting of the elements of A followed by the
@@ -81,27 +81,18 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        // fill in method
+        //TODO:  fill in method
         IntList aPtr = A;
-        IntList bPtr = B;
-        if (aPtr != null) {
+        if (A == null) {
+            return B;
+        }
+        else {
             while (aPtr.rest != null) {
                 aPtr = aPtr.rest;
             }
+            aPtr.rest = B;
+            return A;
         }
-        if (bPtr != null) {
-            if (aPtr == null) {
-                A = new IntList(bPtr.first, null);
-                aPtr = A;
-                bPtr = bPtr.rest;
-            }
-            while (bPtr != null) {
-                aPtr.rest = new IntList(bPtr.first, null);
-                aPtr = aPtr.rest;
-                bPtr = bPtr.rest;
-            }
-        }
-        return A;
     }
 
     /**
@@ -109,11 +100,13 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        // fill in method
+        //TODO:  fill in method
         if (A == null) {
             return B;
-        } else {
+        }
+        else {
             IntList aPtr = A.rest;
+            IntList bPtr = B;
             IntList res = new IntList(A.first, null);
             IntList ptr = res;
             while (aPtr != null) {
@@ -121,31 +114,14 @@ public class IntList {
                 ptr = ptr.rest;
                 aPtr = aPtr.rest;
             }
-            if (B != null) {
-                IntList bPtr = B;
-                while (bPtr != null) {
-                    ptr.rest = new IntList(bPtr.first, null);
-                    ptr = ptr.rest;
-                    bPtr = bPtr.rest;
-                }
+            while (bPtr != null) {
+                ptr.rest = new IntList(bPtr.first, null);
+                ptr = ptr.rest;
+                bPtr = bPtr.rest;
             }
             return res;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
@@ -214,7 +190,6 @@ public class IntList {
      * an IntList into a String and that IntList has a loop, your computer
      * doesn't get stuck in an infinite loop.
      */
-
     private int detectCycles(IntList A) {
         IntList tortoise = A;
         IntList hare = A;
@@ -289,5 +264,6 @@ public class IntList {
         }
         return B;
     }
+
 }
 
