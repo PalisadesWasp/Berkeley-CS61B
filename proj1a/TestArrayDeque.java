@@ -146,24 +146,21 @@ public class TestArrayDeque {
         ad.addFirst("F6");
         ad.addFirst("F7");
         ad.addFirst("F8");
+        ad.printDeque(); ad.printStatus();
         ad.addLast("R9");
+        ad.printDeque(); ad.printStatus();
         ad.addFirst("F10");
+        ad.printDeque(); ad.printStatus();
         assertEquals(10, ad.size());
-        System.out.print("testResize: ");
-        ad.printDeque();
-        ad.printStatus();
 
         ad.removeFirst();
         ad.removeFirst();
         ad.removeLast();
         ad.removeFirst();
         ad.removeLast();
-        ad.printDeque();
-        ad.printStatus();
-
+        ad.printDeque(); ad.printStatus();
         ad.removeLast();
-        ad.printDeque();
-        ad.printStatus();
+        ad.printDeque(); ad.printStatus();
     }
 
     /** Test the ArrayDeque.Get method (copied from Gradescope) */
