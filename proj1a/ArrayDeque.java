@@ -187,8 +187,8 @@ public class ArrayDeque<T> {
     /**
      * Helper function for testing; print the length of the array and the usage factor
      */
-    public void printStatus() {
+    /*public void printStatus() {
         System.out.println("length: " + items.length + "   usage: " + (double) size / items.length);
-    }
+    }*/
 
 }
