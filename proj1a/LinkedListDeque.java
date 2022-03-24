@@ -1,4 +1,7 @@
 /**
+ * UC Berkeley CS 61B Spring 2018
+ * https://sp18.datastructur.es/materials/proj/proj1a/proj1a
+ * Project 1A: Data Structures
  * Implemented double ended queue using lists as the core data structure
  * Two sentinel approach was used here
  */
