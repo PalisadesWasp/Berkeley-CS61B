@@ -1,9 +1,25 @@
+/**
+ * UC Berkeley CS 61B Spring 2018
+ * https://sp18.datastructur.es/materials/proj/proj1gold/proj1gold
+ * Project 1 Gold: Autograding
+ * A rudimentary autograder for project 1A
+ */
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestArrayDequeGold {
+    /**
+     * Test the addFirst, addLast, removeFirst, and removeLast methods of StudentArrayDeque
+     *
+     * If adding 5 to the front, then 3 to the front, and removing from the front yields an
+     * incorrect value, then the String message passed to assertEquals would be the following:
+     *   addFirst(5)
+     *   addFirst(3)
+     *   removeFirst()
+     */
     @Test
-    public void test1() {
+    public void testStudentArrayDeque() {
         StudentArrayDeque<Integer> sad = new StudentArrayDeque<Integer>();
         ArrayDequeSolution<Integer> ads = new ArrayDequeSolution<Integer>();
         String errMsg = "";
@@ -11,6 +27,7 @@ public class TestArrayDequeGold {
         for (int i = 0; i < 10; i += 1) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
             String msg = "";
+
             if (numberBetweenZeroAndOne < 0.5) {
                 sad.addLast(i);
                 ads.addLast(i);
@@ -23,8 +40,6 @@ public class TestArrayDequeGold {
             errMsg += msg;
         }
 
-        //System.out.println(errMsg);
-
         for (int i = 0; i < 10; i += 1) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
 
@@ -33,13 +48,11 @@ public class TestArrayDequeGold {
                 Integer expected = ads.removeFirst();
                 errMsg += "removeFirst()\n";
                 assertEquals(errMsg, actual, expected);
-                //System.out.println("removeFirst() actual: " + actual + " expected: " + expected);
             } else {
                 Integer actual = sad.removeLast();
                 Integer expected = ads.removeLast();
                 errMsg += "removeLast()\n";
                 assertEquals(errMsg, actual, expected);
-                //System.out.println("removeLast() actual: " + actual + " expected: " + expected);
             }
         }
     }
