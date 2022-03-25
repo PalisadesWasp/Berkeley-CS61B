@@ -18,13 +18,13 @@ public class Palindrome {
     }
 
     /**
-     * Helper method that recursively examines if the character stored in the front and back of a Deque are the same
+     * Helper method that recursively examines if the character stored in the front and back
+     * of a Deque are the same
      */
     private boolean isPalindrome(Deque<Character> dq) {
         if (dq.size() <= 1) {
             return true;
-        }
-        else {
+        } else {
             Character first = dq.removeFirst();
             Character last = dq.removeLast();
             return (first == last) && isPalindrome(dq);
@@ -40,14 +40,14 @@ public class Palindrome {
     }
 
     /**
-     * Helper method that recursively examines if the character stored in the front and back of a Deque are the same,
-     * according to the character comparison test provided by the CharacterComparator passed in
+     * Helper method that recursively examines if the character stored in the front and back
+     * of a Deque are the same, according to the character comparison test provided by the
+     * CharacterComparator passed in
      */
     private boolean isPalindrome(Deque<Character> dq, CharacterComparator cc) {
         if (dq.size() <= 1) {
             return true;
-        }
-        else {
+        } else {
             Character first = dq.removeFirst();
             Character last = dq.removeLast();
             return (cc.equalChars(first, last)) && isPalindrome(dq, cc);

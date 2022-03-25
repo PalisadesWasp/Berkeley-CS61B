@@ -2,7 +2,8 @@ public class OffByN implements CharacterComparator {
     private int offset; // offset input for character comparison
 
     /**
-     * Returns an object whose equalChars method returns true for characters that are off by the input value
+     * Returns an object whose equalChars method returns true for characters that are off by the
+     * input value
      */
     public OffByN(int N) {
         offset = N;
