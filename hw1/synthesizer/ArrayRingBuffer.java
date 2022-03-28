@@ -80,17 +80,17 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
 
     @Override
     public Iterator<T> iterator() {
-        return new arrayIterator();
+        return new ArrayIterator();
     }
 
     /**
      * Iterator implementation
      */
-    private class arrayIterator implements Iterator<T> {
+    private class ArrayIterator implements Iterator<T> {
         private int ptr;
         private int count;
 
-        public arrayIterator() {
+        public ArrayIterator() {
             ptr = first;
             count = 0;
         }
